@@ -1,0 +1,116 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="description" content="Chat trends for Twitch TV.">
+  <meta property="og:title" content="{{ title }}" />
+  <meta property="og:site_name" content="ChatTrends" />
+  <meta property="og:description" content="Chat trends for Twitch TV." />
+  <meta property="og:image" content="{% static "chattrends.png" %}" />
+  <title>ChatTrends - {{ title }}</title>
+  <link rel="shortcut icon" type="image/x-icon" href="{% static "favicon.ico" %}" />
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link rel="stylesheet" href="{% static "style.css" %}">
+  <script src="https://kit.fontawesome.com/e71696321d.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" integrity="sha384-1CmrxMRARb6aLqgBO7yyAxTOQE2AKb9GfXnEo760AUcUmFx3ibVJJAzGytlQcNXd" crossorigin="anonymous"></script>
+  <script src="{% static "ct.js" %}"></script>
+  <script type="text/javascript">
+      (function (path) {
+        var selection = location.hash.match(/\#([0-9]+)-([0-9]+)/);
+        path && ct.load(path, selection && [selection[1] >> 0, selection[2] >> 0]);
+      })
+      $(function() {
+        if ($(document).height() > $(window).height()) {
+          $('.jump-buttons').show();
+        }
+      });
+    </script>
+</head>
+<body class="d-flex flex-column h-100">
+    <div id="top" class="scrollspy"></div>
+    <main role="main" class="flex-shrink-0">
+      <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+          <a class="navbar-brand" href="/">
+            <img src="{% static "chattrends.png" %}" width="186" height="30" class="d-inline-block align-top" alt="">
+          </a>
+          <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="/about">About</a>
+              </li>
+            </ul>
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="https://id.twitch.tv/oauth2/authorize?response_type=code&client_id=65tahauji5m5vwhv86kniug0aum37n&redirect_uri=http://{{request.get_host}}/submitchannel&scope=user:edit+user:read:email+chat:read" rel="nofollow">
+                  <i class="fab fa-fw fa-twitch" style="color:rgba(101, 64, 166, 1) !important">
+                  </i>
+                  <span>Add bot to start tracking</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      {% comment %} {% if already_in %}
+        <p> {{already_in}}</p>
+      {% elif added %}
+        <p>{{added}}</p>
+      {% endif %} {% endcomment %}
+       <div class="container py-2">
+            {% if alreadyin %}
+            <div class="row">
+                <div class="col-sm">
+                </div>
+                <div class="col-sm alert alert-danger alert-dismissible fade show" role="alert">
+                    {{alreadyin}}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>     
+                </div>
+                <div class="col-sm">
+                </div>
+            </div>
+            {% elif added%}
+            <div class="row">
+                <div class="col-sm">
+                </div>
+                <div class="col-sm alert alert-success alert-dismissible fade show" role="alert">
+                    {{added}}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button> 
+                </div>
+                <div class="col-sm">
+                </div>
+            </div>
+            {% endif %}
+        {% comment %} {{ request.build_absolute_uri }} {% endcomment %}
+    </div>
+      {% block content %}
+      {% endblock %}
+      <div id="bottom" class="scrollspy"></div>
+    </main>
+   <footer class="footer mt-auto py-3 fixed-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <span class="text-muted"><small>This is an independent site not run by Twitch.</small></span>
+                </div>
+                <div class="col col-lg-3">
+                    {% if title != "" %}
+                        <span class="text-muted float-right">© 2020 ChatTrends</span>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

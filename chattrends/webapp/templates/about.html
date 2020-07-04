@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="container py-5">
+        <div class="row align-items-center text-center">
+            <div class="col">
+                <a href="https://talhamangarah.me">
+                    <img src="{% static "logo.png" %}" width="95" height="100" class="d-inline-block align-top" alt="">
+                </a>
+                <br></br>
+                <p>This is a web app to track trends for chatrooms of Twitch streamers that opt-in. Made for my 3rd year university project</p>
+                <hr class="about">
+                <p>Emote and badge images are property of Twitch or their respective owners. Do not reuse without obtaining their permission. This is an independent site not run by Twitch.</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,3 @@
+#!/bin/sh
+DIR="${0%/*}"
+"$DIR/java"  -p "$DIR/../app" -m me.talhamangarah.cipher/me.talhamangarah.cipher.Main  "$@"

@@ -1,0 +1,130 @@
+:root {
+    --dark: #2b2a2a !important;
+  }
+  
+  body {
+    background-color: #212121 !important;
+    color: rgba(255, 255, 255, 0.8) !important;
+  }
+  
+  .bg-dark {
+    background-color: #2b2a2a !important;
+  }
+
+  .navbar-dark .navbar-toggler{
+    border-color: rgba(101, 64, 166, 1);
+  }
+  
+  .patreon {
+    background-color: #f96854 !important;
+    color: #fff !important;
+  }
+  
+  .btn-dark {
+    background-color: #2b2a2a;
+    border: 1px solid #ff5722 !important;
+  }
+  .btn-dark:hover {
+    background-color: #535353;
+  }
+  
+  .btn {
+    text-decoration-style: unset;
+  }
+  
+  .btn-primary {
+    color: rgb(255, 255, 255);
+    background-color: rgb(101, 64, 166);
+    border-color: rgb(101, 64, 166);
+
+  }
+  
+  .table-dark {
+    color: rgba(255, 255, 255, 0.8) !important;
+    background-color: #2b2a2a !important;
+  }
+  
+  .table-row:hover {
+    cursor: pointer;
+  }
+  
+  .table-bordered {
+    border: 0px;
+  }
+  
+  .table-bordered th,
+  .table-bordered td {
+    border: 0;
+    border-bottom: 1px solid #ff5722 !important;
+  }
+  
+  .table-bordered thead th,
+  .table-bordered thead td {
+    border: 0;
+    border-bottom: 1px solid #ff5722 !important;
+  }
+  
+  .link-white {
+    color: white;
+  }
+  
+  .link-white:hover {
+    color: #598cc2;
+  }
+  
+  .link-blue {
+    color: #598cc2;
+  }
+  
+  .link-blue:hover {
+    color: #3e71a8;
+  }
+  
+  .list-group-item {
+    margin-bottom: 0;
+    background-color: #2b2a2a;
+    border: 0;
+    border-bottom: 1px solid #ff5722 !important;
+    color: rgba(255, 255, 255, 0.8) !important;
+  }
+  
+  .list-group-item:hover,
+  .list-group-item:focus {
+    z-index: 1;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.9);
+    background-color: #535353;
+  }
+  
+  .breadcrumb {
+    background-color: #2b2a2a;
+  }
+  
+  .text {
+    word-break: break-word;
+    white-space: pre-line;
+    color: rgba(255, 255, 255, 0.8) !important;
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+  
+  text {
+    fill: white;
+  }
+  
+  .domain {
+    stroke: white;
+  }
+
+  hr.about {
+    border-top-color: rgb(51, 51, 51)
+  }
+  
+  .footer {
+    background-color: #2b2a2a;
+    /* position: absolute;
+    bottom: 0;
+    width: 100%; */
+  }
